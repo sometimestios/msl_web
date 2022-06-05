@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'v1_admin',
+    'v1_admin.apps.V1AdminConfig',
     'v1_chart',
 ]
 

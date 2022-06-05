@@ -1,0 +1,107 @@
+{% extends 'v1_admin/base.html' %}
+{% load static %}
+
+
+{% block main %}
+    <div class="col-md-12">
+        <div class="content-box">
+            <div class="head success-bg clearfix">
+                <h5 class="content-title pull-left">管理测量任务</h5>
+                <div class="functions-btns pull-right">
+                    <a class="refresh-btn" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                    <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a>
+                    <a class="close-btn" href="#"><i class="zmdi zmdi-close"></i></a>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>靶标</th>
+                            <th>日志源</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>cup</td>
+                            <td>apache访问日志,user日志</td>
+                            <td>运行中</td>
+                            <td>
+                                <a href="">
+                                    <button type="button" href="#" class="btn btn-info btn-xs waves-effect">
+                                        查看
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button type="button" href="#" class="btn btn-danger btn-xs waves-effect">
+                                        删除
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="content-box">
+            <div class="head success-bg clearfix">
+                <h5 class="content-title pull-left">添加测量任务</h5>
+                <div class="functions-btns pull-right">
+                    <a class="refresh-btn" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                    <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a>
+                    <a class="close-btn" href="#"><i class="zmdi zmdi-close"></i></a>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">选择靶标</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control selectpicker">
+                                        <option>cup</option>
+                                        <option>insect</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">选择日志源</label>
+                                <div class="col-sm-10">
+                                    <label>
+                                        <div class="checkbox checkbox-primary">
+                                            <label><input type="checkbox">
+                                                <i>apache访问日志</i></label>
+                                        </div>
+                                        <div class="checkbox checkbox-primary">
+                                            <label><input type="checkbox">
+                                                <i>user日志</i></label>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <button type="button" class="btn btn-info">提交</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

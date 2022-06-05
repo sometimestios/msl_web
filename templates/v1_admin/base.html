@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#49CEFF">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#49CEFF"/>
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>靶标日志管理与态势测量系统</title>
+    <link rel="stylesheet" href="{% static 'v1_admin/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'v1_admin/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'v1_admin/bower_components/animate.css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'v1_admin/bower_components/metisMenu/dist/metisMenu.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'v1_admin/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'v1_admin/bower_components/Waves/dist/waves.min.css' %}">
+    <link rel="stylesheet" href="{% static 'v1_admin/bower_components/toastr/toastr.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'v1_admin/bower_components/datatables/media/css/jquery.dataTables.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'v1_admin/bower_components/bootstrap-select/dist/css/bootstrap-select.css' %}">
+
+    <link rel="stylesheet" href="{% static 'v1_admin/css/style.css' %}">
+</head>
+
+<body>
+<div id="preloader">
+    <div class="refresh-preloader">
+        <div class="preloader"><i>.</i><i>.</i><i>.</i></div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <nav class="navbar">
+        <div class="navbar-header container">
+            <a href="#" class="menu-toggle"><i class="zmdi zmdi-menu"></i></a>
+            <a href="index.html" class="icon-logo"><img src="{% static 'v1_admin/img/a/scu_log.png' %}"
+                                                        alt="Logo Pacificonis"></a>
+            <a href="index.html" class="icon-logo"><img src="{% static 'v1_admin/img/a/scu_log.png' %}"
+                                                        alt="Logo Pacificonis"></a>
+        </div>
+        <div class="navbar-container clearfix">
+            <div class="pull-left">
+                <a href="#" class="page-title text-uppercase">靶标日志管理与态势测量系统</a>
+            </div>
+            <div class="pull-right">
+                <div class="pull-left search-container">
+                    <form class="searchbox">
+                        <input type="search" placeholder="搜索" name="search" class="searchbox-input">
+                        <input type="submit" class="searchbox-submit" value="">
+                        <span class="searchbox-icon"><span class="zmdi zmdi-search search-icon"></span></span>
+                    </form>
+                </div>
+
+                <ul class="nav pull-right right-menu">
+                    <li class="more-options dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="zmdi zmdi-account-circle"></i>
+                        </a>
+
+                        <div class="more-opt-container dropdown-menu">
+                            <a href="#"><i class="zmdi zmdi-account-o"></i>用户设置</a>
+                            <a href="#"><i class="zmdi zmdi-run"></i>退出</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <aside class="sidebar">
+        <ul class="nav metismenu">
+            <li class="profile-sidebar-container">
+                <div class="profile-sidebar text-center">
+                    <div class="profile-userpic">
+                        <img src="{% static 'v1_admin/img/profile_user.jpg' %}"
+                             class="img-responsive img-circle center-block" alt="user">
+                        <span class="online"></span>
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="name">
+                            四川大学网络靶场
+                        </div>
+                    </div>
+                    <div class="profile-activity clearfix">
+                        <div class="pull-left">
+                            靶标数量
+                            <br>
+                            <span>10</span>
+                        </div>
+                        <div class="pull-right">
+                            日志数量
+                            <br>
+                            <span>30</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#"><i class="zmdi zmdi-view-dashboard"></i>靶标管理<span class="zmdi arrow"></span></a>
+                <ul class="nav nav-inside collapse">
+                    <li class="inside-title">靶标管理</li>
+                    <li><a href="/target_check/">查看靶标</a></li>
+                    <li><a href="/target_add/">添加靶标</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="zmdi zmdi-view-compact"></i>日志管理<span class="zmdi arrow"></span></a>
+                <ul class="nav nav-inside collapse">
+                    <li class="inside-title">日志管理</li>
+                    <li><a href="/log_check/">查看日志</a></li>
+                    <li><a href="/log_add/">添加日志</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="zmdi zmdi-google-pages"></i>态势测量<span class="zmdi arrow"></span></a>
+                <ul class="nav nav-inside collapse">
+                    <li class="inside-title">异常检测</li>
+                    <li><a href="/task_manage/">管理测量任务</a></li>
+
+                </ul>
+            </li>
+
+
+        </ul>
+    </aside>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            {% block main %}
+
+            {% endblock main %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'v1_admin/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/metisMenu/dist/metisMenu.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/Waves/dist/waves.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/toastr/toastr.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/bootstrap-select/dist/js/bootstrap-select.js' %}"></script>
+<script src="{% static 'v1_admin/js/common.js' %}"></script>
+
+<script src="{% static 'v1_admin/bower_components/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/datatables.net-responsive/js/dataTables.responsive.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/moment/min/moment.min.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/Chart.js/Chart.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/flot.tooltip/js/jquery.flot.tooltip.js' %}"></script>
+<script src="{% static 'v1_admin/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js' %}"></script>
+
+
+</body>
+</html>
