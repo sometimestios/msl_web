@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'v1_admin.apps.V1AdminConfig',
     'v1_chart',
+    'add_data.apps.AddDataConfig'
 ]
 
 MIDDLEWARE = [

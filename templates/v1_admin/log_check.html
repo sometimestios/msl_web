@@ -1,47 +1,50 @@
 {% extends 'v1_admin/base.html' %}
-{% load static %}
 
 
 {% block main %}
     <div class="col-md-12">
-                <div class="content-box">
-                    <div class="head success-bg clearfix">
-                        <h5 class="content-title pull-left">查看日志</h5>
-                        <div class="functions-btns pull-right">
-                            <a class="refresh-btn" href="#"><i class="zmdi zmdi-refresh"></i></a>
-                            <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a>
-                            <a class="close-btn" href="#"><i class="zmdi zmdi-close"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>靶标</th>
-                                    <th>日志类型</th>
-                                    <th>路径</th>
-                                    <th>备注</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>cup</td>
-                                    <td>apache访问日志</td>
-                                    <td>data/cup/apache2/access.log</td>
-                                    <td>-</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                    </div>
-
-
+        <div class="content-box">
+            <div class="head success-bg clearfix">
+                <h5 class="content-title pull-left">查看日志</h5>
+                <div class="functions-btns pull-right">
+                    <a class="refresh-btn" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                    <a class="fullscreen-btn" href="#"><i class="zmdi zmdi-fullscreen"></i></a>
+                    <a class="close-btn" href="#"><i class="zmdi zmdi-close"></i></a>
                 </div>
             </div>
+
+            <div class="content">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>靶标</th>
+                            <th>日志类型</th>
+                            <th>路径</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for log in log_list %}
+                            <tr>
+                                <th scope="row">{{ log.id }}</th>
+                                <td>{{ log.target }}</td>
+                                <td>{{ log.log_type }}</td>
+                                <td>{{ log.path1 }}</td>
+                                <td>{{ log.desc }}</td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
 {% endblock main %}

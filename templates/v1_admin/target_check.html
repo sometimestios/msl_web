@@ -1,5 +1,4 @@
 {% extends 'v1_admin/base.html' %}
-{% load static %}
 
 
 {% block main %}
@@ -28,14 +27,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>cup</td>
-                            <td>*</td>
-                            <td>CentOS</td>
-                            <td>Web</td>
-                            <td>AIT Log数据集</td>
-                        </tr>
+                        {% for target in target_list %}
+                            <tr>
+                                <th scope="row">{{ target.id }}</th>
+                                <td>{{ target.name }}</td>
+                                <td>{{ target.ip }}</td>
+                                <td>{{ target.os }}</td>
+                                <td>{{ target.service }}</td>
+                                <td>{{ target.desc }}</td>
+                            </tr>
+                        {% endfor %}
+
+
                         </tbody>
                     </table>
                 </div>

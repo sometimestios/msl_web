@@ -36,6 +36,7 @@
 </head>
 
 <body>
+
 <div id="preloader">
     <div class="refresh-preloader">
         <div class="preloader"><i>.</i><i>.</i><i>.</i></div>
@@ -71,8 +72,8 @@
                         </a>
 
                         <div class="more-opt-container dropdown-menu">
-                            <a href="#"><i class="zmdi zmdi-account-o"></i>用户设置</a>
-                            <a href="#"><i class="zmdi zmdi-run"></i>退出</a>
+                            <a href="/admin/"><i class="zmdi zmdi-account-o"></i>后台</a>
+                            <a href="#"><i class="zmdi zmdi-run"></i>注销</a>
                         </div>
                     </li>
                 </ul>
@@ -97,12 +98,12 @@
                         <div class="pull-left">
                             靶标数量
                             <br>
-                            <span>10</span>
+                            <span>{{ target_num }}</span>
                         </div>
                         <div class="pull-right">
                             日志数量
                             <br>
-                            <span>30</span>
+                            <span>{{ log_num }}</span>
                         </div>
                     </div>
                 </div>
@@ -135,9 +136,6 @@
 
         </ul>
     </aside>
-
-
-
     <div class="container-fluid">
         <div class="row">
             {% block main %}
